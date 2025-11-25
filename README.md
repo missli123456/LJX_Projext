@@ -40,3 +40,11 @@ LIBS += -L$$pwD/../../../../../../lib/64/-lMvcameracontrol
 ```
 ctrl+s保存，重新构建，Build All Projects,运行BasicDemo.pro，查找设备，进行图形采集，即可。
 
+## 代码Git上传
+```
+$ git add <filename>  # 将指定文件添加到暂存区中
+$ git commit -m "xxx"  # 把暂存区中的文件提交到本地仓库中并添加描述信息
+$ git push -u origin <branch>  # 将本地仓库的分支提交至相应的远程仓库分支
+$ git clone -b <branch> <url>  # 将远程仓库的一个分支克隆到本地
+$ git pull  # 从远程仓库中获取最新版本
+```

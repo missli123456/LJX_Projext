@@ -57,6 +57,7 @@ cd /home/ljx2026/retrieval_audio/Retrieval-based-Voice-Conversion-WebUI
 export CUDA_VISIBLE_DEVICES=1
 export PYTHONPATH="$PWD:$PYTHONPATH"
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export HF_ENDPOINT=https://hf-mirror.com
 python rvc_stream_server.py --port 9001
 ```
 
@@ -92,5 +93,6 @@ cd /home/ljx2026/digital_number
 export CUDA_VISIBLE_DEVICES=1
 export PYTHONPATH="$PWD:$PYTHONPATH"
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export HF_ENDPOINT=https://hf-mirror.com
 python digit_asr_server.py --host 0.0.0.0 --port 9002
 ```

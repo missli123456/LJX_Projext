@@ -48,3 +48,38 @@ $ git push -u origin <branch>  # 将本地仓库的分支提交至相应的远�
 $ git clone -b <branch> <url>  # 将远程仓库的一个分支克隆到本地
 $ git pull  # 从远程仓库中获取最新版本
 ```
+
+# RENESAS实时语音模拟音色
+## 实现步骤
+```
+conda activate rvc
+cd /home/ljx2026/retrieval_audio/Retrieval-based-Voice-Conversion-WebUI
+export CUDA_VISIBLE_DEVICES=1
+export PYTHONPATH="$PWD:$PYTHONPATH"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python rvc_stream_server.py --port 9001
+```
+
+## 语言固定为简中
+```
+python - <<'PY'
+from pathlib import Path
+
+p = Path("webui.py")
+s = p.read_text(encoding="utf-8")
+
+old = "i18n = I18nAuto()"
+new = 'i18n = I18nAuto("zh_CN")'
+
+count = s.count(old)
+
+if count != 1:
+    raise SystemExit(
+        f"停止修改：找到 {count} 处目标代码，"
+        "请先检查 webui.py"
+    )
+
+p.write_text(s.replace(old, new), encoding="utf-8")
+print("已将 WebUI 语言固定为简体中文")
+PY
+```

@@ -83,3 +83,14 @@ p.write_text(s.replace(old, new), encoding="utf-8")
 print("已将 WebUI 语言固定为简体中文")
 PY
 ```
+
+# RENESAS实时语音数字识别
+## 实现步骤
+```
+conda activate digit_asr
+cd /home/ljx2026/digital_number
+export CUDA_VISIBLE_DEVICES=1
+export PYTHONPATH="$PWD:$PYTHONPATH"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+python digit_asr_server.py --host 0.0.0.0 --port 9002
+```
